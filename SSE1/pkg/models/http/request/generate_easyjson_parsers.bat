@@ -1,0 +1,5 @@
+call generate_UserDisablingRequest_easyjson.bat
+call generate_UserLogInRequest_easyjson.bat
+call generate_UserLogOutRequest_easyjson.bat
+call generate_UserRegistrationRequest_easyjson.bat
+pause

@@ -1,0 +1,15 @@
+{
+  "task": {
+    "mimeType": "text/csv",
+    "bucket": "bucket-x",
+    "filePath": "abc/test-1.csv"
+  },
+  "Result": {
+    "isSuccess": true,
+    "error": null,
+    "bucket": "bucket-x",
+    "pdfFilePath": "abc/test-1.csv.pdf",
+    "smallPngFilePath": "abc/test-1.csv.small.png",
+    "largePngFilePath": "abc/test-1.csv.large.png"
+  }
+}

@@ -1,0 +1,251 @@
+openapi: 3.0.0
+info:
+  title: Go File Events
+  description: 'Документация микро-сервиса Go File Events'
+  contact:
+    name: 'Someone'
+    email: 'someone@example.org'
+  version: '1.0'
+servers:
+- url: https://localhost:8080
+  variables: {}
+paths:
+  /live:
+    get:
+      tags:
+      - System
+      summary: Liveness
+      description: 'Проверка доступности сервиса'
+      operationId: Liveness
+      parameters: []
+      responses:
+        '200':
+          description: 'Сервис доступен'
+          headers: {}
+      deprecated: false
+      security: []
+  /file-events/all:
+    get:
+      tags:
+      - Public
+      summary: GetAllEvents
+      description: 'Получение всех событий по файлу'
+      operationId: GetAllEvents
+      parameters:
+      - $ref: '#/components/parameters/FileIdParameter'
+      - $ref: '#/components/parameters/ClientTimeZoneParameter'
+      responses:
+        '200':
+          description: 'Список событий по файлу'
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventsResponseSchema'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/NotAuthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - httpBearer: []
+      deprecated: false
+  /file-events/last-n:
+    get:
+      tags:
+      - Public
+      summary: GetLastNEvents
+      description: 'Получение недавних событий по файлу'
+      operationId: GetLastNEvents
+      parameters:
+        - $ref: '#/components/parameters/FileIdParameter'
+        - $ref: '#/components/parameters/ClientTimeZoneParameter'
+      responses:
+        '200':
+          description: 'Список событий по файлу'
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventsResponseSchema'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '401':
+          $ref: '#/components/responses/NotAuthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - httpBearer: []
+      deprecated: false
+  /file-event/types:
+    get:
+      tags:
+      - Public
+      summary: GetEventTypes
+      description: 'Получение списка типов событий'
+      operationId: GetEventTypes
+      parameters: []
+      responses:
+        '200':
+          description: 'Список типов событий'
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: 'Список типов событий'
+                nullable: false
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventTypeSchema'
+        '401':
+          $ref: '#/components/responses/NotAuthorizedError'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - httpBearer: []
+      deprecated: false
+components:
+  parameters:
+    FileIdParameter:
+      name: file_id
+      in: query
+      description: 'Идентификатор файла'
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: string
+        example: 'file-001'
+    ClientTimeZoneParameter:
+      name: X-Client-Time-Zone
+      in: header
+      description: 'Название часового пояса для выборки списка событий >
+            (в соответствии с базой данных часовых поясов IANA,
+            также известной как "tzdata")'
+      required: true
+      style: simple
+      schema:
+        type: string
+        example: 'Europe/Moscow'
+  schemas:
+    EventsResponseSchema:
+      description: 'Список событий файла для заданного часового пояса'
+      type: object
+      nullable: false
+      properties:
+        fileId:
+          $ref: '#/components/schemas/FileIdSchema'
+        timeZone:
+          type: string
+          nullable: false
+          description: 'Название часового пояса для выборки списка событий >
+            (в соответствии с базой данных часовых поясов IANA,
+            также известной как "tzdata")'
+        records:
+          type: array
+          nullable: false
+          description: 'Список событий по файлу'
+          items:
+            type: object
+            description: 'Событие по файлу'
+            nullable: false
+            properties:
+              day:
+                type: string
+                nullable: true
+                description: 'День агрегируемого события >
+                  (в соответствии с часовым поясом списка событий)
+                  или NULL для простого события'
+                example: '1999-12-31'
+              subEventsCount:
+                type: integer
+                nullable: true
+                description: 'Количество раздельных событий в склейке по указанному дню >
+                  (в соответствии с часовым поясом списка событий)
+                  или NULL для простого события'
+                example: '42'
+              time:
+                type: string
+                nullable: false
+                description: 'Момент времени, в который произошло простое событие или склейка событий >
+                  (в соответствии с часовым поясом списка событий, в формате RFC 3339);
+                  временем склейки событий считается время самого позднего события из склейки'
+                example: '1999-12-31T23:59:59+03:00'
+              eventTypeId:
+                $ref: '#/components/schemas/EventTypeIdSchema'
+      deprecated: false
+    EventTypeSchema:
+      description: 'Тип события'
+      type: object
+      nullable: false
+      properties:
+        id:
+          $ref: '#/components/schemas/EventTypeIdSchema'
+        descriptionRu:
+          type: string
+          nullable: false
+          description: 'Краткое описание типа события на русском языке'
+        descriptionEn:
+          type: string
+          nullable: false
+          description: 'Краткое описание типа события на английском языке'
+        isSimple:
+          type: boolean
+          nullable: false
+          description: 'Признак принадлежности события этого типа к простым событиям, которые не подвержены склеиванию'
+        isAggregated:
+          type: boolean
+          nullable: false
+          description: 'Признак принадлежности события этого типа к агрегируемым событиям, которые подвержены склеиванию'
+      deprecated: false
+    EventTypeIdSchema:
+      type: integer
+      format: int16
+      nullable: false
+      description: 'Идентификатор типа события'
+      enum:
+        - value: 1
+          name: EventTypeIdCreation
+          description: 'Создание'
+        - value: 2
+          name: EventTypeIdUpload
+          description: 'Загрузка (на сервер)'
+        - value: 3
+          name: EventTypeIdDownload
+          description: 'Скачивание (с сервера)'
+        - value: 4
+          name: EventTypeIdModification
+          description: 'Изменение'
+    FileIdSchema:
+      type: string
+      nullable: false
+      description: 'Идентификатор файла'
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    BadRequestError:
+      description: 'Неправильный запрос'
+      content:
+        text/plain:
+          schema: {}
+    NotAuthorizedError:
+      description: 'Не авторизован'
+      content:
+        text/plain:
+          schema: {}
+    InternalServerError:
+      description: 'Внутренняя ошибка сервера'
+      content:
+        text/plain:
+          schema: {}
+security:
+- httpBearer: []
+tags:
+- name: System
+  description: 'Системные обработчики'
+- name: Public
+  description: 'Общественные обработчики'

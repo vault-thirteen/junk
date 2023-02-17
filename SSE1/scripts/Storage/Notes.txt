@@ -1,0 +1,27 @@
+--------------------------------------------------------------------------------
+
+Notes for a MySQL Database.
+
+--------------------------------------------------------------------------------
+
+In order to do Everything as expected, the installed MySQL 8.0 Database must 
+use the following Setting applied:
+	lower_case_table_names=2
+
+This Setting is used in the [mysqld] Section of the 'my.ini' Configuration 
+File, which is usually located at the following Folder in Windows O.S.:
+	C:\ProgramData\MySQL\MySQL Server 8.0
+
+The Value '2' of this Setting is not supported by a Linux O.S. as stated in 
+the Documentation:
+	https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html
+												#sysvar_lower_case_table_names
+	https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html
+
+The Value '2' of this Setting is used by default in MacOS, but in Windows O.S.
+it must be manually configured during the Server Installation Process. After the
+Server is installed this Settings can not be changed, this is very important !
+To configure this Setting in Windows, one should use the advanced Configuration 
+during the Installation Process.
+
+--------------------------------------------------------------------------------

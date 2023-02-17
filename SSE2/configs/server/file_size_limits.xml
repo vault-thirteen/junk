@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Go's built-in 'xml' Package does not support XML Version 1.1 -->
+<Settings>
+    <FileSizeLimiter>
+        <MimeType name="text/csv" sizeLimit="8000000" /><!-- CSV -->
+        <MimeType name="application/msword" sizeLimit="8000000" /><!-- DOC -->
+        <MimeType name="application/vnd.openxmlformats-officedocument.wordprocessingml.document" sizeLimit="8000000" /><!-- DOCX -->
+        <MimeType name="application/vnd.ms-word.document.macroEnabled.12" sizeLimit="8000000" /><!-- DOCM -->
+        <MimeType name="application/vnd.oasis.opendocument.spreadsheet" sizeLimit="8000000" /><!-- ODS -->
+        <MimeType name="application/vnd.oasis.opendocument.text" sizeLimit="8000000" /><!-- ODT -->
+        <MimeType name="application/rtf" sizeLimit="8000000" /><!-- RTF -->
+        <MimeType name="application/vnd.ms-excel" sizeLimit="8000000" /><!-- XLS -->
+        <MimeType name="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" sizeLimit="8000000" /><!-- XLSX -->
+    </FileSizeLimiter>
+</Settings>

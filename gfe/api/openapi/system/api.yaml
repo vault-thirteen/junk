@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Go File Events
+  description: 'Документация микро-сервиса Go File Events'
+  contact:
+    name: 'Someone'
+    email: 'someone@example.org'
+  version: '1.0'
+servers:
+- url: https://localhost:9999
+  variables: {}
+paths:
+  /ready:
+    get:
+      tags:
+      - System
+      summary: Readiness
+      description: 'Проверка работоспособности сервиса'
+      operationId: Readiness
+      parameters: []
+      responses:
+        '200':
+          description: 'Сервис функционирует нормально'
+          headers: {}
+        '503':
+          $ref: '#/components/responses/ServiceIsNotReadyResponse'
+      deprecated: false
+      security: []
+  /metrics:
+    get:
+      tags:
+      - System
+      summary: Metrics
+      description: 'Метрики сервиса'
+      operationId: Metrics
+      parameters: []
+      responses:
+        '200':
+          description: 'Список метрик сервиса'
+          content:
+            text/plain:
+              schema: {}
+          headers: {}
+      deprecated: false
+      security: []
+components:
+  responses:
+    ServiceIsNotReadyResponse:
+      description: 'Сервис функционирует ненормально'
+      content:
+        text/plain:
+          schema: {}
+tags:
+- name: System
+  description: 'Системные обработчики'

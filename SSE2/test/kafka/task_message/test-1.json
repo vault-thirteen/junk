@@ -1,0 +1,5 @@
+{
+  "mimeType": "text/csv",
+  "bucket": "bucket-x",
+  "filePath": "abc/test-1.csv"
+}

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Go's built-in 'xml' Package does not support XML Version 1.1 -->
+<Configuration>
+    <Server>
+        <Access>
+            <CoolDownPeriod
+                userLogInSec="30"
+                userUnregSec="30"
+            />
+            <Session
+                idleSessionTimeoutSec="300"
+            />
+            <Token
+                lifeTimeSec="3600"
+            />
+        </Access>
+        <HttpServer
+            address="localhost:2020"
+            cookiePath="/api/"
+            shutdownTimeoutSec="60"
+            tokenHeader="X-Token"
+        />
+        <Logger
+            isEnabled="true"
+            type="built-in"
+        />
+        <Storage
+            address="localhost:3306"
+            connectionParameters="allowNativePasswords=true&amp;parseTime=false"
+            database="test"
+            password="test"
+            type="MySQL"
+            user="test"
+        >
+            <InitializationScripts
+                folder=".\..\..\scripts\Storage\Ini"
+            />
+            <TableSettings>
+                <Table name="User">
+                    <Column name="Id" />
+                    <Column name="IsEnabled" />
+                    <Column name="PublicName" />
+                </Table>
+                <Table name="UserAuthentication">
+                    <Column name="Id" />
+                    <Column name="UserId" />
+                    <Column name="Name" />
+                    <Column name="Password" />
+                    <Column name="LastLogInAttemptTime" />
+                </Table>
+                <Table name="UserRegistration">
+                    <Column name="Id" />
+                    <Column name="UserId" />
+                    <Column name="SecretCode" />
+                    <Column name="RegTime" />
+                    <Column name="UnregTime" />
+                    <Column name="LastUnregAttemptTime" />
+                </Table>
+                <Table name="BrowserUserAgent">
+                    <Column name="Id" />
+                    <Column name="Name" />
+                </Table>
+                <Table name="Session">
+                    <Column name="Id" />
+                    <Column name="UserId" />
+                    <Column name="UserHost" />
+                    <Column name="UserBuaId" />
+                    <Column name="StartTime" />
+                    <Column name="LastAccessTime" />
+                    <Column name="EndTime" />
+                    <Column name="Marker" />
+                    <Column name="MarkerHash" />
+                    <Column name="TokenKey" />
+                </Table>
+            </TableSettings>
+            <Time>
+                <Format>2006-01-02 15:04:05</Format>
+                <Zone>Europe/Moscow</Zone>
+            </Time>
+        </Storage>
+        <TimeZone>Europe/Moscow</TimeZone>
+        <TLS
+            certificateFile=".\..\..\configs\certificates\1\cert.pem"
+            isEnabled="true"
+            keyFile=".\..\..\configs\certificates\1\key.pem"
+        />
+    </Server>
+</Configuration>
