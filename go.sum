@@ -537,6 +537,8 @@ github.com/vault-thirteen/MIME v1.3.0 h1:4Lhh77VrcgvqgI3glH8g2iFp68Gy6sq5u7xy3Gb
 github.com/vault-thirteen/MIME v1.3.0/go.mod h1:lAszpOP2si5ADX1891kbghxhrTnFOcB7BRJjijhLnKk=
 github.com/vault-thirteen/SQL v0.2.0 h1:DGrw8j6/J2+MZFTn7/rlGkx3vCjeSSxvisRlpzjaTCg=
 github.com/vault-thirteen/SQL v0.2.0/go.mod h1:6Jyvrwc1JN1YI3V1TJ9shb4m7y6Exaga2QstK11HIF0=
+github.com/vault-thirteen/Versioneer v0.2.2 h1:gMgHK8F2FFsMWtfjgS6WaQZ4tyygVnQaWVb+jNgWbYs=
+github.com/vault-thirteen/Versioneer v0.2.2/go.mod h1:Xz43/Wfil6nUvkYuTOct4PMBpyN9JlcbXQzT3J5Thys=
 github.com/vault-thirteen/auxie v0.5.0 h1:8guNt71lDl777+n1vnkdQQe1CXsTkyRtg/ucndivR5U=
 github.com/vault-thirteen/auxie v0.5.0/go.mod h1:v95jm8C5KjcZx2S2ttWcn0Hu4SjVfdzsOxc74jn6MtY=
 github.com/vault-thirteen/errorz v1.0.1 h1:pDX8J9JSMpCfsa7bnxUbPA5dOz3hLdaii0dIQsAxiRM=

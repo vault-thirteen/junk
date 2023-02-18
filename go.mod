@@ -23,6 +23,7 @@ require (
 	github.com/vault-thirteen/Cache v0.9.0
 	github.com/vault-thirteen/MIME v1.3.0
 	github.com/vault-thirteen/SQL v0.2.0
+	github.com/vault-thirteen/Versioneer v0.2.2
 	github.com/vault-thirteen/auxie v0.5.0
 	github.com/vault-thirteen/errorz v1.0.1
 	github.com/vault-thirteen/gfe v0.0.0-20211212135858-c44d316381cb
