@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+	<title>Main Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="favicon.png"/>
+	<link rel="stylesheet" href="/fe/styles.css">
+	<script type="application/javascript" src="/fe/api.js"></script>
+	<script type="application/javascript" src="/fe/argon2.js"></script>
+	<script type="application/javascript" src="/fe/bpp.js"></script>
+	<script type="application/javascript" src="/fe/loader.js"></script>
+	<script>
+		Module['onRuntimeInitialized'] = function () {
+			console.debug("WASM module has been loaded.");
+		}
+	</script>
+</head>
+<body onload="onPageLoad()" class="main">
+<div id="contentHolder" class="contentHolder">
+	<div id="divReg1" class="divReg">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextReg1" class="header2Text">To register an account, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderReg1" class="formHolder">
+			<tr>
+				<td class="col1">E-mail</td>
+				<td>
+					<form class="f1"><input id="f1i" type="text" name="email" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Register" class="submit" onclick="onReg1Submit(this)"
+							   autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextReg1" class="header3Text">During registration, you will need to confirm your e-mail
+					address with a verification code.
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextReg1" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divReg2" class="divReg">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextReg2" class="header2Text">To continue registration, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderReg2" class="formHolder">
+			<tr>
+				<td class="col1">Verification Code</td>
+				<td>
+					<form class="f2"><input id="f2i" type="password" name="vcode" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Verify" class="submit" onclick="onReg2Submit(this)"
+							   autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextReg2" class="header3Text">We have sent a verification code to your e-mail box. Check
+					it.
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextReg2" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divReg3" class="divReg">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextReg3" class="header2Text">To continue registration, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderReg3" class="formHolder">
+			<tr>
+				<td class="col1">Name</td>
+				<td>
+					<form class="f3"><input id="f3i" type="text" name="name" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td class="col1">Password</td>
+				<td>
+					<form class="f4"><input id="f4i" type="password" name="pwd" autocomplete="off"/></form>
+				</td>
+				<td class="col3">
+					<div id="f4ief" class="flag_none">&nbsp;</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Register" class="submit" onclick="onReg3Submit(this)"
+							   autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextReg3" class="header3Text">Please, ensure that your name and password meet all the
+					requirements.<br>
+					<br>
+					Requirement 1. Your name must be unique in the system.<br>
+					<br>
+					Requirement 2. Minimum password length is 16 symbols.<br>
+					<br>
+					Requirement 3. Password length must be a multiple of four, e.g. 16, 20, 24, 28, 32, ...<br>
+					<br>
+					Requirement 4. Password must contain only following allowed symbols: <br>
+					<ul>
+						<li>Numbers from 0 to 9,</li>
+						<li>Capital latin letters from A to Z,</li>
+						<li>Special symbols:</li>
+						<li class="hidden">
+							<ul>
+								<li>' ' (White Space),</li>
+								<li>'!' (Exclamation mark),</li>
+								<li>'"' (Quotation mark),</li>
+								<li>'#' (Number sign),</li>
+								<li>'$' (Dollar sign),</li>
+								<li>'%' (Percent sign),</li>
+								<li>'&' (Ampersand),</li>
+								<li>''' (Apostrophe),</li>
+								<li>'(' (Left parenthesis),</li>
+								<li>')' (Right parenthesis),</li>
+								<li>'*' (Asterisk),</li>
+								<li>'+' (Plus sign),</li>
+								<li>',' (Comma),</li>
+								<li>'-' (Hyphen-minus),</li>
+								<li>'.' (Full stop or period),</li>
+								<li>'/' (Solidus or Slash),</li>
+								<li>':' (Colon),</li>
+								<li>';' (Semicolon),</li>
+								<li>'<' (Less-than sign),</li>
+								<li>'=' (Equal sign),</li>
+								<li>'>' (Greater-than sign),</li>
+								<li>'?' (Question mark),</li>
+								<li>'@' (At sign or Commercial at),</li>
+								<li>'[' (Left Square Bracket),</li>
+								<li>'\' (Backslash),</li>
+								<li>']' (Right Square Bracket),</li>
+								<li>'^' (Circumflex accent),</li>
+								<li>'_' (Low line).</li>
+							</ul>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextReg3" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divReg4" class="divReg">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextReg4" class="header2Text">Thank you for registration !</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextReg4" class="header3Text">You will receive an e-mail message when your request is
+					approved.
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextReg4" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divLogIn1" class="divLogIn">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextLogIn1" class="header2Text">In order to use the system, you need to log in</td>
+			</tr>
+		</table>
+		<table id="formHolderLogIn1" class="formHolder">
+			<tr>
+				<td class="col1">E-mail</td>
+				<td>
+					<form class="f5"><input id="f5i" type="text" name="email" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Log in" class="submit" onclick="onLogIn1Submit(this)"
+							   autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextLogIn1" class="header3Text">If you have no account, <a href="/?reg1">register</a>
+					a new one.
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextLogIn1" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divLogIn2" class="divLogIn">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextLogIn2" class="header2Text">To proceed with logging in, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderLogIn2" class="formHolder">
+			<tr>
+				<td class="col1">Password</td>
+				<td>
+					<form class="f6"><input id="f6i" type="password" name="pwd" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr id="formHolderLogIn2CaptchaImage">
+				<td class="col1">Captcha</td>
+				<td>
+					<img id="f7ii" class="f7ii" alt="Captcha image"/>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr id="formHolderLogIn2CaptchaAnswer">
+				<td class="col1">Answer</td>
+				<td>
+					<form class="f7">
+						<input id="f7i" type="text" name="captcha" placeholder="How many circles do you see ?"
+							   autocomplete="off"/>
+					</form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Log in" class="submit" onclick="onLogIn2Submit(this)"
+							   autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextLogIn2" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextLogIn2" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divLogIn3" class="divLogIn">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextLogIn3" class="header2Text">To proceed with logging in, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderLogIn3" class="formHolder">
+			<tr>
+				<td class="col1">Verification Code</td>
+				<td>
+					<form class="f8"><input id="f8i" type="password" name="vcode" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Log in" class="submit" onclick="onLogIn3Submit(this)"
+							   autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextLogIn3" class="header3Text">We have sent a verification code to your e-mail box.
+					Check
+					it.
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextLogIn3" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divLogIn4" class="divLogIn">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextLogIn4" class="header2Text">You have successfully logged into the system</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextLogIn4" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextLogIn4" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divLogOut1" class="divLogOut">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextLogOut1" class="header2Text">Are you sure that you want to log out of the system ?
+				</td>
+			</tr>
+		</table>
+		<table id="formHolderLogOut1" class="formHolder">
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Log out" class="submit" onclick="onLogOut1Submit(this)"
+							   autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextLogOut1" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextLogOut1" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divLogOut2" class="divLogOut">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextLogOut2" class="header2Text">You have successfully logged out of the system</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextLogOut2" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextLogOut2" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divChangeEmail1" class="divChangeEmail">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextChangeEmail1" class="header2Text">To change your e-mail address, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderChangeEmail1" class="formHolder">
+			<tr>
+				<td class="col1">New E-mail Address</td>
+				<td>
+					<form class="f9"><input id="f9i" type="text" name="newEmail" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Change E-mail Address" class="submit"
+							   onclick="onChangeEmail1Submit(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextChangeEmail1" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextChangeEmail1" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divChangeEmail2" class="divChangeEmail">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextChangeEmail2" class="header2Text">To proceed, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderChangeEmail2" class="formHolder">
+			<tr>
+				<td class="col1">Password</td>
+				<td>
+					<form class="f10"><input id="f10i" type="password" name="pwd" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr id="formHolderChangeEmail2CaptchaImage">
+				<td class="col1">Captcha</td>
+				<td>
+					<img id="f11ii" class="f11ii" alt="Captcha image"/>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr id="formHolderChangeEmail2CaptchaAnswer">
+				<td class="col1">Answer</td>
+				<td>
+					<form class="f11">
+						<input id="f11i" type="text" name="captcha" placeholder="How many circles do you see ?"
+							   autocomplete="off"/>
+					</form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td class="col1">Verification Code Old</td>
+				<td>
+					<form class="f12"><input id="f12i" type="password" name="vcodeOld" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td class="col1">Verification Code New</td>
+				<td>
+					<form class="f13"><input id="f13i" type="password" name="vcodeNew" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Change E-mail Address" class="submit"
+							   onclick="onChangeEmail2Submit(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextChangeEmail2" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextChangeEmail2" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divChangeEmail3" class="divChangeEmail">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextChangeEmail3" class="header2Text">You have successfully changed your e-mail address
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextChangeEmail3" class="header3Text">Your account has been logged out of the system for
+					security reasons. Visit the <a href="/">home page</a> to log in.
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextChangeEmail3" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divChangePwd1" class="divChangePwd">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextChangePwd1" class="header2Text">To change your password, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderChangePwd1" class="formHolder">
+			<tr>
+				<td class="col1">New Password</td>
+				<td>
+					<form class="f14"><input id="f14i" type="password" name="newPwd" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Change Password" class="submit"
+							   onclick="onChangePwd1Submit(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextChangePwd1" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextChangePwd1" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divChangePwd2" class="divChangePwd">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextChangePwd2" class="header2Text">To proceed, fill the form</td>
+			</tr>
+		</table>
+		<table id="formHolderChangePwd2" class="formHolder">
+			<tr>
+				<td class="col1">Current Password</td>
+				<td>
+					<form class="f15"><input id="f15i" type="password" name="pwd" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr id="formHolderChangePwd2CaptchaImage">
+				<td class="col1">Captcha</td>
+				<td>
+					<img id="f16ii" class="f16ii" alt="Captcha image"/>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr id="formHolderChangePwd2CaptchaAnswer">
+				<td class="col1">Answer</td>
+				<td>
+					<form class="f16">
+						<input id="f16i" type="text" name="captcha" placeholder="How many circles do you see ?"
+							   autocomplete="off"/>
+					</form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td class="col1">Verification Code</td>
+				<td>
+					<form class="f17"><input id="f17i" type="password" name="vcode" autocomplete="off"/></form>
+				</td>
+				<td class="col3"></td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<form>
+						<input type="button" value="Change Password" class="submit"
+							   onclick="onChangePwd2Submit(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextChangePwd2" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextChangePwd2" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divChangePwd3" class="divChangePwd">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextChangePwd3" class="header2Text">You have successfully changed your password
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextChangePwd3" class="header3Text">Your account has been logged out of the system for
+					security reasons. Visit the <a href="/">home page</a> to log in.
+				</td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextChangePwd3" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="divUserPage" class="divUserPage">
+		<table class="vs1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<table class="header2">
+			<tr>
+				<td id="header2TextUserPage" class="header2Text">User Account Parameters
+				</td>
+			</tr>
+		</table>
+		<table id="formHolderUserPage" class="formHolder">
+			<tr>
+				<td class="col1">Name</td>
+				<td>
+					<form class="f18"><input id="f18i" type="text" name="name" autocomplete="off" readonly/></form>
+				</td>
+				<td class="col3">
+					<form>
+						<input type="button" value="Log Out" class="btnLogOutSelf"
+							   onclick="onBtnLogOutSelfClick(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td class="col1">E-mail Address</td>
+				<td>
+					<form class="f19"><input id="f19i" type="text" name="email" autocomplete="off" readonly/></form>
+				</td>
+				<td class="col3">
+					<form>
+						<input type="button" value="Change E-Mail" class="btnChangeEmail"
+							   onclick="onBtnChangeEmailClick(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td class="col1">Registration Time</td>
+				<td>
+					<form class="f20"><input id="f20i" type="text" name="regTime" autocomplete="off" readonly/></form>
+				</td>
+				<td class="col3">
+					<form>
+						<input type="button" value="Change Password" class="btnChangePwd"
+							   onclick="onBtnChangePwdClick(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+			<tr id="f21tr">
+				<td class="col1">Roles</td>
+				<td class="col2" colspan="2"></td>
+			</tr>
+			<tr>
+				<td class="col1">Subscriptions</td>
+				<td>
+					<form class="f22"><input id="f22i" type="text" name="subscriptionsCount"
+											 autocomplete="off" readonly/></form>
+				</td>
+				<td class="col3">
+					<form>
+						<input type="button" value="Manage Subscriptions" class="btnManageSubscriptions"
+							   onclick="onBtnManageSubscriptionsClick(this)" autocomplete="off"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<table class="header3">
+			<tr>
+				<td id="header3TextUserPage" class="header3Text"></td>
+			</tr>
+		</table>
+		<table class="header4">
+			<tr>
+				<td id="header4TextUserPage" class="header4Text"></td>
+			</tr>
+		</table>
+	</div>
+	<div id="subpage" class="subpage"></div>
+	<div id="divBB" class="divBB"></div>
+</div>
+</body>
+</html>

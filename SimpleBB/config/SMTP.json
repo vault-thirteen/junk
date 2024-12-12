@@ -1,0 +1,16 @@
+{
+  "http": {
+    "host": "localhost",
+    "port": 2005
+  },
+  "system": {
+    "isDebugMode": false
+  },
+  "smtp": {
+    "host": "smtp.yandex.com",
+    "port": 465,
+    "user": "mailer@yandex.com",
+    "password": "",
+    "userAgent": "Mailer"
+  }
+}

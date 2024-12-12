@@ -1,0 +1,48 @@
+{
+  "https": {
+    "host": "localhost",
+    "port": 2008,
+    "certFile": "cert\\SM\\server-cert.pem",
+    "keyFile": "cert\\SM\\server-key.pem"
+  },
+  "db": {
+    "driverName": "mysql",
+    "net": "tcp",
+    "host": "localhost",
+    "port": 3306,
+    "dbName": "test",
+    "user": "test",
+    "password": "test",
+    "allowNativePasswords": true,
+    "checkConnLiveness": true,
+    "maxAllowedPacket": 64000000,
+    "params": {
+      "parseTime": "true"
+    },
+    "tableNamePrefix": "v1",
+    "tablesToInit": [
+      "ThreadSubscriptions",
+      "UserSubscriptions"
+    ],
+    "tableInitScriptsFolder": "sql\\SM\\table_init"
+  },
+  "system": {
+    "pageSize": 20,
+    "dKeySize": 16,
+    "isDebugMode": false
+  },
+  "acm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2001,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  },
+  "mm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2002,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  }
+}

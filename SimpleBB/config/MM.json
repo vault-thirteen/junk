@@ -1,0 +1,52 @@
+{
+  "https": {
+    "host": "localhost",
+    "port": 2002,
+    "certFile": "cert\\MM\\server-cert.pem",
+    "keyFile": "cert\\MM\\server-key.pem"
+  },
+  "db": {
+    "driverName": "mysql",
+    "net": "tcp",
+    "host": "localhost",
+    "port": 3306,
+    "dbName": "test",
+    "user": "test",
+    "password": "test",
+    "allowNativePasswords": true,
+    "checkConnLiveness": true,
+    "maxAllowedPacket": 64000000,
+    "params": {
+      "parseTime": "true"
+    },
+    "tableNamePrefix": "v1",
+    "tablesToInit": [
+      "Sections",
+      "Forums",
+      "Threads",
+      "Messages"
+    ],
+    "tableInitScriptsFolder": "sql\\MM\\table_init"
+  },
+  "system": {
+    "dKeySize": 16,
+    "messageEditTime": 300,
+    "pageSize": 20,
+    "newThreadsAtTop": true,
+    "isDebugMode": false
+  },
+  "acm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2001,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  },
+  "nm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2007,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "https": {
+    "host": "localhost",
+    "port": 2001,
+    "certFile": "cert\\ACM\\server-cert.pem",
+    "keyFile": "cert\\ACM\\server-key.pem"
+  },
+  "db": {
+    "driverName": "mysql",
+    "net": "tcp",
+    "host": "localhost",
+    "port": 3306,
+    "dbName": "test",
+    "user": "test",
+    "password": "test",
+    "allowNativePasswords": true,
+    "checkConnLiveness": true,
+    "maxAllowedPacket": 64000000,
+    "params": {
+      "parseTime": "true"
+    },
+    "tableNamePrefix": "v1",
+    "tablesToInit": [
+      "PreRegisteredUsers",
+      "Users",
+      "PreSessions",
+      "Sessions",
+      "Incidents",
+      "PasswordChanges",
+      "EmailChanges",
+      "LogEvents"
+    ],
+    "tableInitScriptsFolder": "sql\\ACM\\table_init"
+  },
+  "system": {
+    "siteName": "Test Site",
+    "siteDomain": "example.org",
+    "verificationCodeLength": 16,
+    "userNameMaxLenInBytes": 255,
+    "userPasswordMaxLenInBytes": 255,
+    "preRegUserExpirationTime": 900,
+    "isAdminApprovalRequired": true,
+    "logInRequestIdLength": 16,
+    "logInTryTimeout": 60,
+    "preSessionExpirationTime": 300,
+    "sessionMaxDuration": 86400,
+    "passwordChangeExpirationTime": 300,
+    "emailChangeExpirationTime": 300,
+    "actionTryTimeout": 60,
+    "pageSize": 20,
+    "isTableOfIncidentsUsed": true,
+    "blockTimePerIncident": {
+      "illegalAccessAttempt": 60,
+      "fakeToken": 60,
+      "verificationCodeMismatch": 60,
+      "doubleLogInAttempt": 60,
+      "preSessionHacking": 300,
+      "captchaAnswerMismatch": 60,
+      "passwordMismatch": 60,
+      "passwordChangeHacking": 300,
+      "emailChangeHacking": 300,
+      "fakeIPA": 300
+    },
+    "isDebugMode": false
+  },
+  "jwt": {
+    "privateKeyFilePath": "cert\\JWT\\jwtPrivateKey.pem",
+    "publicKeyFilePath": "cert\\JWT\\jwtPublicKey.pem",
+    "signingMethod": "RS512"
+  },
+  "role": {
+    "moderatorIds": [],
+    "administratorIds": []
+  },
+  "message": {
+    "subjectTemplateForRegVCode": "Verification code for forum on %s",
+    "subjectTemplateForReg": "Registration on %s forum",
+    "bodyTemplateForRegVCode": "We thank you for using %s. \r\n\r\nIn order to proceed with your registration, please, verify your e-mail address with an activation code: \r\n%s\r\n\r\nKeep this message until your registration is fully approved by administrators.\r\n",
+    "bodyTemplateForReg": "We thank you for using %s. \r\n\r\nYour registration was approved.",
+    "bodyTemplateForLogIn": "In order to log into the forum, use the following verification code: \r\n%s",
+    "bodyTemplateForPwdChange": "In order to change your password, use the following verification code: \r\n%s",
+    "bodyTemplateForEmailChange": "In order to change your e-mail address, use the following verification code: \r\n%s"
+  },
+  "captcha": {
+    "schema": "http",
+    "host": "localhost",
+    "port": 2004,
+    "path": "/"
+  },
+  "gwm": {
+    "schema": "http",
+    "host": "localhost",
+    "port": 2006,
+    "path": "/"
+  },
+  "rcs": {
+    "schema": "http",
+    "host": "localhost",
+    "port": 2003,
+    "path": "/"
+  },
+  "smtp": {
+    "schema": "http",
+    "host": "localhost",
+    "port": 2005,
+    "path": "/"
+  }
+}

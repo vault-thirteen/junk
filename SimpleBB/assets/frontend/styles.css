@@ -1,0 +1,784 @@
+html {
+	margin: 0;
+	padding: 0;
+	background-color: beige;
+}
+
+body {
+	display: inline-block;
+}
+
+body.main {
+	width: 100%;
+}
+
+body.admin {
+	width: auto;
+}
+
+body,
+div {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+}
+
+form, input {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.contentHolder {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.vs1 {
+	height: 5px;
+}
+
+table.header2,
+table.formHolder,
+table.header3,
+table.header4 {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td.header2Text,
+td.header3Text,
+td.header4Text {
+	font-family: "DejaVu Sans", serif;
+	text-align: center;
+}
+
+td.header2Text {
+	font-size: 15px;
+	padding-bottom: 4px;
+}
+
+td.header3Text {
+	font-size: 13px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-align: left;
+}
+
+td.header4Text {
+	font-size: 15px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	color: red;
+}
+
+table.formHolder {
+	width: auto;
+	background-color: lightskyblue;
+	border: 1px solid black;
+}
+
+.formHolder td.col1 {
+	width: 240px;
+	font-family: "DejaVu Sans Mono", monospace;
+	font-size: 16px;
+	text-align: center;
+}
+
+.formHolder td.col3 {
+	width: 20px;
+}
+
+.f1 input,
+.f2 input,
+.f3 input,
+.f4 input,
+.f5 input,
+.f6 input,
+.f7 input,
+.f8 input,
+.f9 input,
+.f10 input,
+.f11 input,
+.f12 input,
+.f13 input,
+.f14 input,
+.f15 input,
+.f16 input,
+.f17 input {
+	width: 240px;
+	font-family: "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+
+.f18 input,
+.f19 input,
+.f19 input,
+.f20 input,
+.f21 input,
+.f22 input {
+	width: 100%;
+	font-family: "DejaVu Sans Mono", monospace;
+	font-size: 13px;
+}
+
+/* pwd */
+.f2 input,
+.f4 input,
+.f6 input,
+.f8 input,
+.f10 input,
+.f12 input,
+.f13 input,
+.f14 input,
+.f15 input,
+.f17 input {
+	letter-spacing: 2px;
+}
+
+.flag_none {
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+}
+
+.flag_error {
+	width: 100%;
+	height: 100%;
+	background-color: red;
+}
+
+.formHolder input.submit {
+	width: 100%;
+	background-color: lightgrey;
+	font-size: 16px;
+}
+
+.formHolder input.submit:hover {
+	width: 100%;
+	background-color: gray;
+	cursor: pointer;
+}
+
+.header3Text a {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+div.divReg,
+div.divLogIn,
+div.divLogOut,
+div.divChangeEmail,
+div.divChangePwd,
+div.divUserPage,
+div.divBB {
+	height: auto;
+	display: none;
+	margin: 10px;
+}
+
+div.divBB {
+	font-family: "DejaVu Sans", serif;
+	font-size: 14px;
+	margin: 10px;
+}
+
+div.head {
+	font-family: "DejaVu Sans", serif;
+	font-size: 16px;
+	margin: 10px;
+	text-align: left;
+	color: grey;
+}
+
+li.hidden {
+	list-style: none;
+}
+
+table.acpMenu .col1 {
+	width: 128px;
+}
+
+table.acpMenu td {
+	font-size: 16px;
+	padding: 2px;
+}
+
+.btnGo,
+.btnAccept,
+.btnReject,
+.btnLogOut,
+.btnPrev,
+.btnNext,
+.btnBack,
+.btnEnableRole,
+.btnDisableRole,
+.btnChangeEmail,
+.btnChangePwd,
+.btnLogOutSelf,
+.btnAccount,
+.btnGoToIndex,
+.btnGoToThread,
+.btnGoToForum,
+.btnGoToSection,
+.btnProceed,
+.btnCreateRootSection,
+.btnCreateNormalSection,
+.btnChangeSectionName,
+.btnChangeSectionParent,
+.btnMoveSection,
+.btnDeleteSection,
+.btnCreateForum,
+.btnChangeForumName,
+.btnChangeForumParent,
+.btnMoveForum,
+.btnDeleteForum,
+.btnCreateThread,
+.btnChangeThreadName,
+.btnChangeThreadParent,
+.btnMoveThread,
+.btnDeleteThread,
+.btnCreateMessage,
+.btnChangeMessageText,
+.btnChangeMessageParent,
+.btnDeleteMessage,
+.btnStartNewThread,
+.btnConfirmThreadStart,
+.btnAddMessage,
+.btnConfirmMessageCreation,
+.btnEditMessage,
+.btnConfirmMessageEdit,
+.btnNotificationsOff,
+.btnNotificationsOn,
+.btnNotificationsBoxFull,
+.btnCreateNotification,
+.btnDeleteNotification,
+.btnMarkNotificationAsReadU,
+.btnDeleteNotificationU,
+.btnShowFullNotificationU,
+.btnSubscribe,
+.btnManageSubscriptions,
+.btnBackToAccount,
+.btnUnsubscribe,
+.btnCreateResource,
+.btnDeleteResource,
+.btnCreateFormatString,
+.btnDeleteFormatString {
+	border: 1px solid grey;
+	color: grey;
+	cursor: pointer;
+	font-size: 16px;
+	font-family: "DejaVu Sans", serif;
+	width: 128px;
+}
+
+.btnNotificationsOff,
+.btnNotificationsOn,
+.btnNotificationsBoxFull {
+	width: 32px;
+}
+
+.btnGoToIndex {
+	width: 32px;
+	padding: 4px;
+}
+
+.btnNotificationsOn {
+	background-color: gold;
+}
+
+.btnNotificationsBoxFull {
+	background-color: orangered;
+}
+
+.btnGoToThread,
+.btnGoToForum,
+.btnGoToSection {
+	width: 96px;
+	height: 32px;
+}
+
+.btnBackToAccount {
+	width: 192px;
+}
+
+.btnBack {
+	color: brown;
+}
+
+.btnPrev,
+.btnNext {
+	font-size: 14px;
+	color: grey;
+	width: 32px;
+}
+
+.btnAccept,
+.btnEnableRole,
+.btnMarkNotificationAsReadU {
+	color: darkgreen;
+}
+
+.btnDeleteNotificationU,
+.btnShowFullNotificationU,
+.btnMarkNotificationAsReadU {
+	margin: 1px;
+	width: 36px;
+	height: 36px;
+	font-size: 12px;
+}
+
+.btnChangeEmail,
+.btnChangePwd,
+.btnManageSubscriptions {
+	color: sandybrown;
+	width: 192px;
+}
+
+.btnLogOutSelf {
+	color: red;
+	width: 192px;
+}
+
+.btnReject,
+.btnLogOut,
+.btnDisableRole,
+.btnDeleteSection,
+.btnDeleteForum,
+.btnDeleteThread,
+.btnChangeMessageText,
+.btnDeleteMessage,
+.btnDeleteNotification,
+.btnDeleteNotificationU,
+.btnUnsubscribe,
+.btnDeleteResource,
+.btnDeleteFormatString {
+	color: crimson;
+}
+
+.btnProceed {
+	margin-top: 5px;
+}
+
+.btnCreateRootSection,
+.btnCreateNormalSection,
+.btnCreateForum,
+.btnCreateThread,
+.btnCreateMessage,
+.btnStartNewThread,
+.btnConfirmThreadStart,
+.btnAddMessage,
+.btnConfirmMessageCreation,
+.btnConfirmMessageEdit,
+.btnCreateNotification,
+.btnCreateResource,
+.btnCreateFormatString {
+	color: green;
+}
+
+.btnConfirmThreadStart,
+.btnConfirmMessageCreation,
+.btnConfirmMessageEdit {
+	margin-top: 5px;
+}
+
+.btnStartNewThread,
+.btnAddMessage,
+.btnEditMessage {
+	width: 192px;
+}
+
+.btnChangeSectionName,
+.btnChangeSectionParent,
+.btnMoveSection,
+.btnChangeForumName,
+.btnChangeForumParent,
+.btnMoveForum,
+.btnChangeThreadName,
+.btnChangeThreadParent,
+.btnMoveThread,
+.btnChangeMessageParent,
+.btnEditMessage {
+	color: orange;
+}
+
+.acpMenu,
+.subpage {
+	display: none;
+	font-family: "DejaVu Sans", serif;
+	font-size: 14px;
+	margin: 10px;
+}
+
+.subpageTitle {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	font-size: 18px;
+	background-color: bisque;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+table.subpageListOfUsers,
+table.subpageListOfRRFA,
+table.subpageListOfLoggedUsers,
+table.subpageListOfResources,
+table.subpageUserPage,
+table.notificationList,
+table.subscriptionsList {
+	border: 1px solid black;
+	text-align: right;
+}
+
+table.notificationList {
+	width: 100%;
+}
+
+div.notificationListTitle {
+	color: black;
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+table.subpageListOfUsers th,
+table.subpageListOfRRFA th,
+table.subpageListOfLoggedUsers th,
+table.subpageListOfResources th,
+table.subpageUserPage th,
+table.notificationList th,
+table.subscriptionsList th {
+	border: 1px solid black;
+	padding: 3px;
+	background-color: bisque;
+	text-align: center;
+}
+
+table.subpageListOfUsers td,
+table.subpageListOfRRFA td,
+table.subpageListOfLoggedUsers td,
+table.subpageListOfResources td,
+table.subpageUserPage td,
+table.notificationList td,
+table.subscriptionsList td {
+	border: 1px solid black;
+	padding: 3px;
+}
+
+table.notificationList td {
+	vertical-align: top;
+	text-align: left;
+}
+
+table.notificationList td.unread {
+	font-weight: bold;
+}
+
+table.notificationList td.read {
+	color: green;
+}
+
+table.notificationList td.deleted {
+	color: grey;
+	text-decoration: line-through;
+}
+
+table.notificationList td table td.visible {
+	display: table-cell;
+	padding: 0;
+	border: 0;
+}
+
+table.notificationList td table td.hidden {
+	display: none;
+	padding: 0;
+	border: 0;
+}
+
+table.notificationList td.lastCol {
+	width: 0.1%;
+	min-width: 76px;
+	max-width: 76px;
+	padding: 0;
+}
+
+table.notificationList td.numCol {
+	width: 0.1%;
+	min-width: 25px;
+	max-width: 25px;
+	padding: 2px;
+}
+
+table.notificationList td.col2 {
+	width: 0.1%;
+	min-width: 96px;
+	max-width: 96px;
+}
+
+table.subpageListOfUsers tr:nth-child(even),
+table.subpageListOfRRFA tr:nth-child(even),
+table.subpageListOfLoggedUsers tr:nth-child(even),
+table.subpageListOfResources tr:nth-child(even),
+table.subpageUserPage tr:nth-child(even),
+table.subscriptionsList tr:nth-child(even) {
+	background-color: white;
+}
+
+table.subpageListOfUsers tr:nth-child(odd),
+table.subpageListOfRRFA tr:nth-child(odd),
+table.subpageListOfLoggedUsers tr:nth-child(odd),
+table.subpageListOfResources tr:nth-child(odd),
+table.subpageUserPage tr:nth-child(odd),
+table.subscriptionsList tr:nth-child(odd) {
+	background-color: #E8E8E8;
+}
+
+table.subpageListOfUsers tr:hover,
+table.subpageListOfRRFA tr:hover,
+table.subpageListOfLoggedUsers tr:hover,
+table.subpageListOfResources tr:hover {
+	background-color: #FFFFBA;
+}
+
+table.subpageListOfUsers tr a,
+table.subpageListOfLoggedUsers tr a {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+th.numCol,
+td.numCol {
+	color: gray;
+}
+
+.pageHead {
+	font-family: "DejaVu Sans", serif;
+	font-size: 16px;
+	margin: 10px 0 10px 0;
+	text-align: left;
+	color: grey;
+}
+
+.pageHeadL {
+	width: 100%;
+	text-align: left;
+}
+
+.pageHeadR {
+	width: auto;
+	text-align: right;
+}
+
+div.section {
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	font-size: 20px;
+	background-color: bisque;
+	padding-left: 10px;
+}
+
+div.section a {
+	text-decoration: none;
+}
+
+div.forum {
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	font-size: 20px;
+	background-color: white;
+	padding-left: 10px;
+}
+
+div.forum a {
+	text-decoration: none;
+}
+
+div.thread {
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	font-size: 18px;
+	background-color: gainsboro;
+	padding-left: 10px;
+}
+
+div.thread a {
+	text-decoration: none;
+}
+
+div.messageHeader {
+	margin-right: 15px;
+	margin-top: 10px;
+	margin-bottom: 0;
+	border: 1px solid black;
+	border-bottom: 0;
+	font-size: 14px;
+	background-color: #EEEEEE;
+	padding-left: 15px;
+}
+
+div.messageHeader a {
+	text-decoration: none;
+}
+
+div.messageBody {
+	margin-right: 15px;
+	margin-top: 0;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	font-size: 15px;
+	background-color: white;
+	padding: 10px 15px;
+}
+
+div.messageBody a {
+}
+
+.paginator {
+	font-size: 14px;
+	color: grey;
+	margin-bottom: 10px;
+}
+
+.spacerA {
+	width: 15px;
+	display: inline-block;
+}
+
+span.userPageRole {
+	display: inline-block;
+	background-color: #E8E8E8;
+	border-radius: 5px;
+	padding: 2px 5px 2px 5px;
+	margin: 4px;
+	font-family: "DejaVu Sans", serif;
+	font-size: 13px;
+}
+
+span.userPageRole a {
+	text-decoration: none;
+}
+
+.actionPanel {
+	margin-bottom: 10px;
+}
+
+.bottomActionPanel {
+	margin-top: 10px;
+}
+
+div.sectionManager div.title,
+div.forumManager div.title,
+div.threadManager div.title,
+div.messageManager div.title,
+div.newThreadCreation div.title,
+div.newMessageCreation div.title,
+div.messageEditing div.title,
+div.notificationManager div.title,
+div.resourceManager div.title {
+	font-weight: bold;
+}
+
+div.sectionManager div,
+div.forumManager div,
+div.threadManager div,
+div.messageManager div,
+div.newThreadCreation div,
+div.newMessageCreation div,
+div.messageEditing div,
+div.notificationManager div,
+div.resourceManager div {
+	margin-bottom: 3px;
+}
+
+div.sectionManager fieldset input,
+div.forumManager fieldset input,
+div.threadManager fieldset input,
+div.messageManager fieldset input,
+div.newThreadCreation input,
+div.newMessageCreation input,
+div.messageEditing input,
+div.notificationManager input,
+div.resourceManager input {
+	border: 1px solid grey;
+}
+
+label.action {
+	margin-left: 5px;
+}
+
+label.parameter {
+	margin-right: 5px;
+	width: 92px;
+	display: inline-block;
+	text-align: right;
+}
+
+input.parameter {
+	min-width: 256px;
+}
+
+div.actionSuccess {
+	color: green;
+}
+
+span.messageCreatorName,
+span.messageEditorName {
+	font-weight: bold;
+}
+
+span.messageEditorTime {
+	color: orange;
+}
+
+div.newThreadCreation {
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+input.newThreadName {
+	width: 75%;
+	font-size: 15px;
+}
+
+textarea.newMessageText {
+	width: 75%;
+	height: 128px;
+	font-size: 15px;
+}
+
+.bottomActionPanelL {
+	width: 100%;
+	text-align: left;
+}
+
+.bottomActionPanelR {
+	width: auto;
+	text-align: right;
+}
+
+.pageTitle {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid black;
+	font-size: 20px;
+	background-color: white;
+	padding-left: 10px;
+}

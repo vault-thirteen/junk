@@ -1,0 +1,83 @@
+{
+  "intHttp": {
+    "host": "localhost",
+    "port": 2006
+  },
+  "extHttps": {
+    "host": "localhost",
+    "port": 2000,
+    "certFile": "cert\\GWM\\server-cert.pem",
+    "keyFile": "cert\\GWM\\server-key.pem"
+  },
+  "db": {
+    "driverName": "mysql",
+    "net": "tcp",
+    "host": "localhost",
+    "port": 3306,
+    "dbName": "test",
+    "user": "test",
+    "password": "test",
+    "allowNativePasswords": true,
+    "checkConnLiveness": true,
+    "maxAllowedPacket": 64000000,
+    "params": {
+      "parseTime": "true"
+    },
+    "tableNamePrefix": "v1",
+    "tablesToInit": [
+      "IPAddresses"
+    ],
+    "tableInitScriptsFolder": "sql\\GWM\\table_init"
+  },
+  "system": {
+    "settingsVersion": 1,
+    "siteName": "Test Site",
+    "siteDomain": "example.org",
+    "isFirewallUsed": true,
+    "clientIPAddressSource": 1,
+    "clientIPAddressHeader": "X-Forwarded-For",
+    "captchaImgServerHost": "localhost",
+    "captchaImgServerPort": 2004,
+    "captchaFolder": "captcha",
+    "sessionMaxDuration": 86400,
+    "messageEditTime": 300,
+    "pageSize": 20,
+    "apiFolder": "api",
+    "publicSettingsFileName": "settings.json",
+    "isFrontEndEnabled": true,
+    "frontEndStaticFilesFolder": "fe",
+    "frontEndAssetsFolder": "assets\\frontend",
+    "isDebugMode": false,
+    "isDeveloperMode": false,
+    "devModeHttpHeaderAccessControlAllowOrigin": "localhost",
+    "notificationCountLimit": 1000
+  },
+  "acm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2001,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  },
+  "mm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2002,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  },
+  "nm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2007,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  },
+  "sm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2008,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  }
+}

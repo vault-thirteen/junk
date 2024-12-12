@@ -1,0 +1,25 @@
+{
+  "http": {
+    "host": "localhost",
+    "port": 2003
+  },
+  "system": {
+    "isDebugMode": false
+  },
+  "captcha": {
+    "storeImages": true,
+    "imagesFolder": "rcs_img",
+    "imageWidth": 256,
+    "imageHeight": 256,
+    "imageTtlSec": 120,
+    "clearImagesFolderAtStart": true,
+    "useHttpServerForImages": true,
+    "httpServerHost": "localhost",
+    "httpServerPort": 2004,
+    "httpServerName": "RCS",
+    "isCachingEnabled": true,
+    "cacheSizeLimit": 5,
+    "cacheVolumeLimit": 1000000,
+    "cacheRecordTtl": 60
+  }
+}

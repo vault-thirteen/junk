@@ -1,0 +1,64 @@
+{
+  "https": {
+    "host": "localhost",
+    "port": 2007,
+    "certFile": "cert\\NM\\server-cert.pem",
+    "keyFile": "cert\\NM\\server-key.pem"
+  },
+  "db": {
+    "driverName": "mysql",
+    "net": "tcp",
+    "host": "localhost",
+    "port": 3306,
+    "dbName": "test",
+    "user": "test",
+    "password": "test",
+    "allowNativePasswords": true,
+    "checkConnLiveness": true,
+    "maxAllowedPacket": 64000000,
+    "params": {
+      "parseTime": "true"
+    },
+    "tableNamePrefix": "v1",
+    "tablesToInit": [
+      "Incidents",
+      "Notifications",
+      "Resources",
+      "SystemEvents"
+    ],
+    "tableInitScriptsFolder": "sql\\NM\\table_init"
+  },
+  "system": {
+    "notificationTtl": 604800,
+    "notificationCountLimit": 32,
+    "pageSize": 20,
+    "dKeySize": 16,
+    "isTableOfIncidentsUsed": true,
+    "blockTimePerIncident": {
+      "illegalAccessAttempt": 60,
+      "readingNotificationOfOtherUsers": 60,
+      "wrongDKey": 60
+    },
+    "isDebugMode": false
+  },
+  "acm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2001,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  },
+  "gwm": {
+    "schema": "http",
+    "host": "localhost",
+    "port": 2006,
+    "path": "/"
+  },
+  "sm": {
+    "schema": "https",
+    "host": "localhost",
+    "port": 2008,
+    "path": "/",
+    "enableSelfSignedCertificate": true
+  }
+}

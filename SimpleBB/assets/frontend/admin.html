@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+	<title>Administrator's Control Panel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="favicon.png"/>
+	<link rel="stylesheet" href="/fe/styles.css">
+	<script type="application/javascript" src="/fe/admin.js"></script>
+	<script type="application/javascript" src="/fe/api.js"></script>
+</head>
+<body onload="onPageLoad()" class="admin">
+<div class="head">Administrator's Control Panel</div>
+<table id="acpMenu" class="acpMenu">
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoRegApprovalClick(this)"></form>
+		</td>
+		<td>Registration Approval</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoLoggedUsersClick(this)"></form>
+		</td>
+		<td>Logged Users</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoListAllUsersClick(this)"></form>
+		</td>
+		<td>List of all Users</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoListResourcesClick(this)"></form>
+		</td>
+		<td>List of Resources</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoManageSectionsClick(this)"></form>
+		</td>
+		<td>Manage Sections</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoManageForumsClick(this)"></form>
+		</td>
+		<td>Manage Forums</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoManageThreadsClick(this)"></form>
+		</td>
+		<td>Manage Threads</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoManageMessagesClick(this)"></form>
+		</td>
+		<td>Manage Messages</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoManageNotificationsClick(this)"></form>
+		</td>
+		<td>Manage Notifications</td>
+	</tr>
+	<tr>
+		<td class="col1">
+			<form><input class="btnGo" type="button" value=" ☼☼☼ " onclick="onGoManageResourcesClick(this)"></form>
+		</td>
+		<td>Manage Resources</td>
+	</tr>
+</table>
+<div id="subpage" class="subpage"></div>
+</body>
+</html>
