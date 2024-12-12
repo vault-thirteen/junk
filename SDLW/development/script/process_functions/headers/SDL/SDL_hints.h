@@ -1,0 +1,11 @@
+typedef enum { SDL_HINT_DEFAULT, SDL_HINT_NORMAL, SDL_HINT_OVERRIDE } SDL_HintPriority;
+typedef void (SDLCALL *SDL_HintCallback)(void *userdata, const char *name, const char *oldValue, const char *newValue);
+extern DECLSPEC SDL_bool SDLCALL SDL_SetHintWithPriority(const char *name, const char *value, SDL_HintPriority priority);
+extern DECLSPEC SDL_bool SDLCALL SDL_SetHint(const char *name, const char *value);
+extern DECLSPEC SDL_bool SDLCALL SDL_ResetHint(const char *name);
+extern DECLSPEC void SDLCALL SDL_ResetHints(void);
+extern DECLSPEC const char * SDLCALL SDL_GetHint(const char *name);
+extern DECLSPEC SDL_bool SDLCALL SDL_GetHintBoolean(const char *name, SDL_bool default_value);
+extern DECLSPEC void SDLCALL SDL_AddHintCallback(const char *name, SDL_HintCallback callback, void *userdata);
+extern DECLSPEC void SDLCALL SDL_DelHintCallback(const char *name, SDL_HintCallback callback, void *userdata);
+extern DECLSPEC void SDLCALL SDL_ClearHints(void);

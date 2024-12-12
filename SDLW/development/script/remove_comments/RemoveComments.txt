@@ -1,0 +1,8 @@
+Regular Expression:
+/\*.*?\*/
+
+When doing this in Notepad++:
+switch on the '. matches newline' checkbox.
+
+Source:
+https://superuser.com/questions/1563699/remove-multiline-comments-from-notepad-using-regex
