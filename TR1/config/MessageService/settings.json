@@ -1,0 +1,198 @@
+{
+  "service": {
+    "shortName": "MessageService",
+    "fullName": "Message Service",
+    "components": [
+      {
+        "type": "system",
+        "parameters": [
+          {
+            "name": "isDebugMode",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "databaseType",
+            "type": "string",
+            "value": "mysql"
+          },
+          {
+            "name": "isDatabaseInitialisationUsed",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "pageSize",
+            "type": "integer",
+            "value": 20
+          },
+          {
+            "name": "messageEditTime",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "initConsoleColours",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "database",
+        "protocol": "mysql",
+        "parameters": [
+          {
+            "name": "driverName",
+            "type": "string",
+            "value": "mysql"
+          },
+          {
+            "name": "net",
+            "type": "string",
+            "value": "tcp"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 3306
+          },
+          {
+            "name": "dbName",
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "allowNativePasswords",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "checkConnLiveness",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "maxAllowedPacket",
+            "type": "integer",
+            "value": 64000000
+          },
+          {
+            "name": "params",
+            "type": "map",
+            "value": {
+              "parseTime": "true"
+            }
+          }
+        ]
+      }
+    ],
+    "servers": [
+      {
+        "type": "internal",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2005
+          },
+          {
+            "name": "certFile",
+            "type": "string",
+            "value": "cert\\MessageService\\server-cert.pem"
+          },
+          {
+            "name": "keyFile",
+            "type": "string",
+            "value": "cert\\MessageService\\server-key.pem"
+          }
+        ]
+      }
+    ],
+    "clients":  [
+      {
+        "type": "auth",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "https"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2001
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          },
+          {
+            "name": "enableSelfSignedCertificate",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "mailer",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "https"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2004
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          },
+          {
+            "name": "enableSelfSignedCertificate",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      }
+    ]
+  }
+}

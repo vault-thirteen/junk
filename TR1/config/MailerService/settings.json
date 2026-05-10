@@ -1,0 +1,82 @@
+{
+  "service": {
+    "shortName": "MailerService",
+    "fullName": "Mailer Service",
+    "components": [
+      {
+        "type": "system",
+        "parameters": [
+          {
+            "name": "isDebugMode",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "initConsoleColours",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "mailer",
+        "parameters": [
+          {
+            "name": "host",
+            "type": "string",
+            "value": "smtp.yandex.com"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 465
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "value": "test@yandex.com"
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "userAgent",
+            "type": "string",
+            "value": "Mailer"
+          }
+        ]
+      }
+    ],
+    "servers": [
+      {
+        "type": "internal",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2004
+          },
+          {
+            "name": "certFile",
+            "type": "string",
+            "value": "cert\\MailerService\\server-cert.pem"
+          },
+          {
+            "name": "keyFile",
+            "type": "string",
+            "value": "cert\\MailerService\\server-key.pem"
+          }
+        ]
+      }
+    ],
+    "clients": []
+  }
+}

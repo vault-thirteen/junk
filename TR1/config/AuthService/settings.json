@@ -1,0 +1,399 @@
+{
+  "service": {
+    "shortName": "AuthService",
+    "fullName": "Authorisation Service",
+    "components": [
+      {
+        "type": "system",
+        "parameters": [
+          {
+            "name": "isDebugMode",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "databaseType",
+            "type": "string",
+            "value": "mysql"
+          },
+          {
+            "name": "isDatabaseInitialisationUsed",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "siteName",
+            "type": "string",
+            "value": "Test Site"
+          },
+          {
+            "name": "siteDomain",
+            "type": "string",
+            "value": "example.org"
+          },
+          {
+            "name": "userNameMaxLenInBytes",
+            "type": "integer",
+            "value": 255
+          },
+          {
+            "name": "userPasswordMaxLenInBytes",
+            "type": "integer",
+            "value": 255
+          },
+          {
+            "name": "verificationCodeLength",
+            "type": "integer",
+            "value": 16
+          },
+          {
+            "name": "registrationRequestTtl",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "logInRequestTtl",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "logOutRequestTtl",
+            "type": "integer",
+            "value": 60
+          },
+          {
+            "name": "emailChangeRequestTtl",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "passwordChangeRequestTtl",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "isAdminApprovalRequired",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "requestIdLength",
+            "type": "integer",
+            "value": 16
+          },
+          {
+            "name": "logInTryTimeout",
+            "type": "integer",
+            "value": 60
+          },
+          {
+            "name": "sessionMaxDuration",
+            "type": "integer",
+            "value": 86400
+          },
+          {
+            "name": "passwordChangeTtl",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "emailChangeTtl",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "pageSize",
+            "type": "integer",
+            "value": 20
+          },
+          {
+            "name": "initConsoleColours",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "database",
+        "protocol": "mysql",
+        "parameters": [
+          {
+            "name": "driverName",
+            "type": "string",
+            "value": "mysql"
+          },
+          {
+            "name": "net",
+            "type": "string",
+            "value": "tcp"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 3306
+          },
+          {
+            "name": "dbName",
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "password",
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "allowNativePasswords",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "checkConnLiveness",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "maxAllowedPacket",
+            "type": "integer",
+            "value": 64000000
+          },
+          {
+            "name": "params",
+            "type": "map",
+            "value": {
+              "parseTime": "true"
+            }
+          }
+        ]
+      },
+      {
+        "type": "jwt",
+        "parameters": [
+          {
+            "name": "signingMethod",
+            "type": "string",
+            "value": "RS512"
+          },
+          {
+            "name": "privateKeyFilePath",
+            "type": "string",
+            "value": "cert\\JWT\\jwtPrivateKey.pem"
+          },
+          {
+            "name": "publicKeyFilePath",
+            "type": "string",
+            "value": "cert\\JWT\\jwtPublicKey.pem"
+          },
+          {
+            "name": "isCacheEnabled",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "cacheSizeLimit",
+            "type": "integer",
+            "value": 1024
+          },
+          {
+            "name": "cacheRecordTtl",
+            "type": "integer",
+            "value": 60
+          }
+        ]
+      },
+      {
+        "type": "role",
+        "parameters": [
+          {
+            "name": "moderator",
+            "type": "integers",
+            "value": []
+          },
+          {
+            "name": "administrator",
+            "type": "integers",
+            "value": [1]
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "parameters": [
+          {
+            "name": "subjectTemplate_VC",
+            "type": "string",
+            "value": "Verification code for forum on %s"
+          },
+          {
+            "name": "subjectTemplate_Reg",
+            "type": "string",
+            "value": "Registration on %s forum"
+          },
+          {
+            "name": "bodyTemplate_Reg",
+            "type": "string",
+            "value": "In order to proceed with your registration, use following verification code: \r\n\r\n%s\r\n\r\nKeep this message until your registration is fully approved by administrators.\r\n"
+          },
+          {
+            "name": "bodyTemplate_RegRFA",
+            "type": "string",
+            "value": "Your registration request on %s forum was submitted. \r\n\r\nA message will be sent to you when it is approved."
+          },
+          {
+            "name": "bodyTemplate_RegApproved",
+            "type": "string",
+            "value": "Your registration on %s forum was approved."
+          },
+          {
+            "name": "bodyTemplate_LogIn",
+            "type": "string",
+            "value": "In order to log into the forum, use the following verification code: \r\n\r\n%s"
+          },
+          {
+            "name": "bodyTemplate_PwdChange",
+            "type": "string",
+            "value": "In order to change your password, use the following verification code: \r\n\r\n%s"
+          },
+          {
+            "name": "bodyTemplate_EmailChange",
+            "type": "string",
+            "value": "In order to change your e-mail address, use the following verification code: \r\n\r\n%s"
+          }
+        ]
+      }
+    ],
+    "servers": [
+      {
+        "type": "internal",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2001
+          },
+          {
+            "name": "certFile",
+            "type": "string",
+            "value": "cert\\AuthService\\server-cert.pem"
+          },
+          {
+            "name": "keyFile",
+            "type": "string",
+            "value": "cert\\AuthService\\server-key.pem"
+          }
+        ]
+      }
+    ],
+    "clients":  [
+      {
+        "type": "captcha",
+        "protocol": "http",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "https"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2003
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          },
+          {
+            "name": "enableSelfSignedCertificate",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "rcs",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "https"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2002
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          },
+          {
+            "name": "enableSelfSignedCertificate",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "mailer",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "https"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2004
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          },
+          {
+            "name": "enableSelfSignedCertificate",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      }
+    ]
+  }
+}

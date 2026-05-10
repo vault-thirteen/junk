@@ -1,0 +1,100 @@
+body,
+div,
+form,
+html,
+input,
+table {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    background-color: beige;
+}
+
+
+body {
+    display: inline-block;
+    width: 100%;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.pageHeaderContainer,
+.pageContentContainer,
+.pageFooterContainer {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pageHeaderContainer {
+    margin-bottom: 4px;
+}
+
+.pageFooterContainer {
+    margin-top: 4px;
+}
+
+.pageHeader {
+    color: grey;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.pageContent {
+    padding: 10px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+td.fieldName {
+    font-size: 14px;
+}
+
+input {
+    margin-left: 4px;
+    margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="password"] {
+    border: 1px solid black;
+    padding: 2px;
+    font-size: 14px;
+}
+
+input[type="button"] {
+    background-color: #D4D0C8; /* Windows 2000 colour */
+    color: black;
+    font-family: sans-serif;
+    font-size: 14px;
+    border: 1px solid black;
+}
+
+input[type="button"].proceedButton {
+    width: 256px;
+    color: black;
+}
+
+input[type="button"].proceedButton:hover {
+    cursor: pointer;
+}
+
+.taCenter {
+    text-align: center;
+}
+
+.pageFooter {
+    color: grey;
+    font-family: sans-serif;
+    font-size: 16px;
+}

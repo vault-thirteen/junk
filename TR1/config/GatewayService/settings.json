@@ -1,0 +1,226 @@
+{
+  "service": {
+    "shortName": "GatewayService",
+    "fullName": "Gateway Service",
+    "components": [
+      {
+        "type": "system",
+        "parameters": [
+          {
+            "name": "isDebugMode",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "isDeveloperMode",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "devModeHttpHeaderAccessControlAllowOrigin",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "clientIPAddressSourceCustomHeader",
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "siteName",
+            "type": "string",
+            "value": "Test Site"
+          },
+          {
+            "name": "siteDomain",
+            "type": "string",
+            "value": "example.org"
+          },
+          {
+            "name": "sessionMaxDuration",
+            "type": "integer",
+            "value": 86400
+          },
+          {
+            "name": "messageEditTime",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "pageSize",
+            "type": "integer",
+            "value": 20
+          },
+          {
+            "name": "publicSettingsVersion",
+            "type": "string",
+            "value": "1"
+          },
+          {
+            "name": "publicSettingsTtl",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "cacheControlMaxAge",
+            "type": "integer",
+            "value": 300
+          },
+          {
+            "name": "initConsoleColours",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "sfs",
+        "parameters": [
+          {
+            "name": "rootFolderPath",
+            "type": "string",
+            "value": "assets"
+          },
+          {
+            "name": "isCacheEnabled",
+            "type": "boolean",
+            "value": true
+          },
+          {
+            "name": "fileCacheSizeLimit",
+            "type": "integer",
+            "value": 16
+          },
+          {
+            "name": "fileCacheVolumeLimit",
+            "type": "integer",
+            "value": 8000000
+          },
+          {
+            "name": "cacheRecordTtl",
+            "type": "integer",
+            "value": 300
+          }
+        ]
+      }
+    ],
+    "servers": [
+      {
+        "type": "external",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2000
+          },
+          {
+            "name": "certFile",
+            "type": "string",
+            "value": "cert\\GatewayService\\server-cert.pem"
+          },
+          {
+            "name": "keyFile",
+            "type": "string",
+            "value": "cert\\GatewayService\\server-key.pem"
+          }
+        ]
+      }
+    ],
+    "clients":  [
+      {
+        "type": "auth",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "https"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2001
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          },
+          {
+            "name": "enableSelfSignedCertificate",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      },
+      {
+        "type": "captcha",
+        "protocol": "http",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "http"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2003
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "protocol": "https",
+        "parameters": [
+          {
+            "name": "schema",
+            "type": "string",
+            "value": "https"
+          },
+          {
+            "name": "host",
+            "type": "string",
+            "value": "localhost"
+          },
+          {
+            "name": "port",
+            "type": "integer",
+            "value": 2005
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "value": "/"
+          },
+          {
+            "name": "enableSelfSignedCertificate",
+            "type": "boolean",
+            "value": true
+          }
+        ]
+      }
+    ]
+  }
+}

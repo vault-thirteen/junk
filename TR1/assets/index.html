@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <title>Main Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="application/javascript" src="/api.js"></script>
+    <script type="application/javascript" src="/argon2.js"></script>
+    <script type="application/javascript" src="/bpp.js"></script>
+    <script type="application/javascript" src="/loader.js"></script>
+    <script>
+        Module['onRuntimeInitialized'] = function () {
+            console.debug("WASM module has been loaded.");
+        }
+    </script>
+</head>
+<body onload="onPageLoad()">
+<table class="pageHeaderContainer">
+    <tr><td id="pageHeader" class="pageHeader">Header</td></tr>
+</table>
+<table class="pageContentContainer">
+    <tr><td id="pageContent" class="pageContent">Content</td></tr>
+</table>
+<table class="pageFooterContainer">
+    <tr><td id="pageFooter" class="pageFooter">Footer</td></tr>
+</table>
+</body>
+</html>
